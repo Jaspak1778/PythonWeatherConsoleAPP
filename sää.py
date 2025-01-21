@@ -8,7 +8,7 @@ def sqlconnection():
     return connection
 
 def create_table():
-    connection = sqlconnection()   #kutsutaan sqlconnection funktiota joka palauttaa connection muuttujan tiedot
+    connection = sqlconnection()   #kutsutaan sqlconnection funktiota 
     cursor = connection.cursor()
     cursor.execute('''
                    CREATE TABLE IF NOT EXISTS paikkakunnat (
@@ -66,7 +66,7 @@ def hae_lampotila(paikkakunta):
 
 
 def log(paikkakunta, status, lisatieto=None):
-    with open('saatiedot.log', 'a') as loki:
+    with open('saatiedot.log', 'a' , encoding='utf-8') as loki:
         aika = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         if status == 'onnistui':
             loki.write(f'{aika} - {paikkakunta}: Lämpötilahaku onnistui: {lisatieto} °C\n')
